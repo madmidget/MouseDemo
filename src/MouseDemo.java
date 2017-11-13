@@ -108,6 +108,7 @@ public class MouseDemo extends JFrame implements ActionListener {
                     blanc.setText(b.getText());
                     b.setText("");
                     blanc = b;
+                    System.out.println(b1.getText());
                     won();
 
                 }
@@ -116,24 +117,28 @@ public class MouseDemo extends JFrame implements ActionListener {
     }
 
 
+
+
     public void won() {
 
-        boolean buttonInWrongPlace = false;
         int count = 1;
 
         for (JButton b : buttons) {
             String str = Integer.toString(count);
-            count++;
             if (b.getText().equals(blanc.getText())) {
                 if (count == 16) {
                     JOptionPane.showMessageDialog(null, "GRATTIS");
                     break;
                 }
+
+            } else if (b.getText().equals(str)) {
+                count++;
+
+            } else {
+
+                break;
             }
         }
+
     }
 }
-
-
-
-
